@@ -5,40 +5,19 @@ import { Link } from "react-router-dom";
 
 export default function ConfirmWaste() {
   const [wasteId, setWasteId] = useState("");
-  const [isSearching, setIsSearching] = useState(false);
-  const [isValidId, setIsValidId] = useState(false);
+  const [showWasteDetails, setShowWasteDetails] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setWasteId(value);
-
-    // Basic validation for waste ID format (you can customize this)
-    const isValid = value.trim().length >= 3;
-    setIsValidId(isValid);
+  const handleSearch = () => {
+    if (wasteId.trim()) {
+      setShowWasteDetails(true);
+      console.log("Searching for waste ID:", wasteId);
+    }
   };
 
-  const handleSearch = async () => {
-    if (!isValidId || !wasteId.trim()) return;
-
-    setIsSearching(true);
-
-    try {
-      // Simulate API call for waste ID verification
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-      // Navigate to next section or show results
-      console.log("Waste ID found:", wasteId);
-
-      // Here you would typically:
-      // 1. Validate the waste ID against your database
-      // 2. Show the next section of the confirm waste process
-      // 3. Or navigate to a results page
-
-    } catch (error) {
-      console.error("Error searching waste ID:", error);
-    } finally {
-      setIsSearching(false);
-    }
+  const handleConfirmWaste = () => {
+    // Handle final waste confirmation
+    console.log("Confirming waste...");
+    // Navigate back to dashboard or show success message
   };
 
   return (
@@ -77,51 +56,83 @@ export default function ConfirmWaste() {
 
       {/* Content */}
       <div className="px-6 py-8">
-        <div className="space-y-8">
-          {/* Waste ID Input Section */}
-          <div className="space-y-5">
-            <div className="space-y-2.5">
-              <label className="text-sm font-medium text-black">Waste ID</label>
-              <div className="relative">
-                <input
-                  type="text"
-                  value={wasteId}
-                  onChange={handleInputChange}
-                  placeholder="Enter waste ID"
-                  className="w-full h-14 px-3 pr-12 rounded-full border border-green-primary text-sm placeholder:text-gray-text focus:outline-none focus:ring-2 focus:ring-green-primary/20"
-                  onKeyPress={(e) => {
-                    if (e.key === 'Enter' && isValidId) {
-                      handleSearch();
-                    }
-                  }}
-                />
-                <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-border" />
+        {!showWasteDetails ? (
+          // Initial Search Form
+          <div className="space-y-8">
+            {/* Waste ID Input Section */}
+            <div className="space-y-5">
+              <div className="space-y-2.5">
+                <label className="text-sm font-medium text-black">Waste ID</label>
+                <div className="relative">
+                  <input
+                    type="text"
+                    value={wasteId}
+                    onChange={(e) => setWasteId(e.target.value)}
+                    placeholder="Enter waste ID"
+                    className="w-full h-14 px-3 pr-12 rounded-full border border-green-primary text-sm placeholder:text-gray-text focus:outline-none focus:ring-2 focus:ring-green-primary/20"
+                  />
+                  <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-border" />
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Search Button */}
-          <div className="pt-8">
-            <Button
-              onClick={handleSearch}
-              disabled={!isValidId || isSearching}
-              className={`w-full h-14 text-base font-medium rounded-full transition-all duration-200 ${
-                isValidId && !isSearching
-                  ? 'bg-gradient-to-r from-green-gradient-start to-green-gradient-end text-white hover:opacity-90'
-                  : 'bg-gray-400 text-white cursor-not-allowed opacity-60'
-              }`}
-            >
-              {isSearching ? (
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  Searching...
-                </div>
-              ) : (
-                'Search'
-              )}
-            </Button>
+            {/* Search Button */}
+            <div className="pt-8">
+              <Button
+                onClick={handleSearch}
+                disabled={!wasteId.trim()}
+                className={`w-full h-14 text-base font-medium rounded-full transition-all duration-200 ${
+                  wasteId.trim()
+                    ? 'bg-gradient-to-r from-green-gradient-start to-green-gradient-end text-white hover:opacity-90'
+                    : 'bg-gray-400 text-white cursor-not-allowed opacity-60'
+                }`}
+              >
+                Search
+              </Button>
+            </div>
           </div>
-        </div>
+        ) : (
+          // Waste Details Section
+          <div className="space-y-8">
+            {/* Waste Details Header */}
+            <div className="text-center">
+              <h2 className="text-base font-medium text-green-primary">Waste Details</h2>
+            </div>
+
+            {/* Waste Details Card */}
+            <div className="bg-gray-100 rounded-lg p-6 space-y-4">
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-black">Waste Type -</span>
+                <span className="text-sm text-black font-medium">Plastic</span>
+              </div>
+              
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-black">Waste Weight -</span>
+                <span className="text-sm text-black font-medium">10kg</span>
+              </div>
+              
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-black">Location -</span>
+                <span className="text-sm text-black font-medium">12.11lat 13.59long</span>
+              </div>
+              
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-black">Confirmer Address -</span>
+                <span className="text-sm text-black font-medium">0x365453647564564656</span>
+              </div>
+            </div>
+
+            {/* Confirm Waste Button */}
+            <div className="pt-8">
+              <Button
+                onClick={handleConfirmWaste}
+                className="w-full h-14 text-base font-medium rounded-full bg-gradient-to-r from-green-gradient-end to-green-gradient-start text-white hover:opacity-90"
+              >
+                Confirm Waste
+              </Button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
