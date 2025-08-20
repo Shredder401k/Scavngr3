@@ -38,7 +38,13 @@ export default function ConfirmWaste() {
               <div
                 key={bar}
                 className={`w-1 bg-black rounded-sm ${
-                  bar === 1 ? 'h-3' : bar === 2 ? 'h-4' : bar === 3 ? 'h-5' : 'h-6'
+                  bar === 1
+                    ? "h-3"
+                    : bar === 2
+                      ? "h-4"
+                      : bar === 3
+                        ? "h-5"
+                        : "h-6"
                 }`}
               />
             ))}
@@ -52,7 +58,10 @@ export default function ConfirmWaste() {
 
       {/* Header */}
       <div className="flex items-center gap-15 px-6 py-4">
-        <Link to="/" className="flex items-center justify-center w-11 h-11 rounded-full border border-gray-300">
+        <Link
+          to="/"
+          className="flex items-center justify-center w-11 h-11 rounded-full border border-gray-300"
+        >
           <ChevronLeft className="w-6 h-6 text-black" />
         </Link>
         <div className="flex items-center gap-2">
@@ -69,7 +78,9 @@ export default function ConfirmWaste() {
             {/* Waste ID Input Section */}
             <div className="space-y-5">
               <div className="space-y-2.5">
-                <label className="text-sm font-medium text-black">Waste ID</label>
+                <label className="text-sm font-medium text-black">
+                  Waste ID
+                </label>
                 <div className="relative">
                   <input
                     type="text"
@@ -90,8 +101,8 @@ export default function ConfirmWaste() {
                 disabled={!wasteId.trim()}
                 className={`w-full h-14 text-base font-medium rounded-full transition-all duration-200 ${
                   wasteId.trim()
-                    ? 'bg-gradient-to-r from-green-gradient-start to-green-gradient-end text-white hover:opacity-90'
-                    : 'bg-gray-400 text-white cursor-not-allowed opacity-60'
+                    ? "bg-gradient-to-r from-green-gradient-start to-green-gradient-end text-white hover:opacity-90"
+                    : "bg-gray-400 text-white cursor-not-allowed opacity-60"
                 }`}
               >
                 Search
@@ -103,7 +114,9 @@ export default function ConfirmWaste() {
           <div className="space-y-8">
             {/* Waste Details Header */}
             <div className="text-center">
-              <h2 className="text-base font-medium text-green-primary">Waste Details</h2>
+              <h2 className="text-base font-medium text-green-primary">
+                Waste Details
+              </h2>
             </div>
 
             {/* Waste Details Card */}
@@ -112,15 +125,17 @@ export default function ConfirmWaste() {
                 <span className="text-sm text-black">Waste Type -</span>
                 <span className="text-sm text-black font-medium">Plastic</span>
               </div>
-              
+
               <div className="flex justify-between items-center">
                 <span className="text-sm text-black">Waste Weight -</span>
                 <span className="text-sm text-black font-medium">10kg</span>
               </div>
-              
+
               <div className="flex justify-between items-center">
                 <span className="text-sm text-black">Location -</span>
-                <span className="text-sm text-black font-medium">12.11lat 13.59long</span>
+                <span className="text-sm text-black font-medium">
+                  12.11lat 13.59long
+                </span>
               </div>
             </div>
 
@@ -155,7 +170,10 @@ export default function ConfirmWaste() {
                   Your Waste Confirmation is Successful
                 </h3>
                 <p className="text-sm text-black">
-                  Amount To Pay: <span className="text-green-primary font-medium">2,000 SCV</span>
+                  Amount To Pay:{" "}
+                  <span className="text-green-primary font-medium">
+                    2,000 SCV
+                  </span>
                 </p>
               </div>
 
