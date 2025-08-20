@@ -96,10 +96,12 @@ export default function Index() {
 
       {/* Confirm Waste Button */}
       <div className="mx-3 mb-6">
-        <Button className="w-full bg-green-light text-black hover:bg-green-light/80 h-14 text-sm rounded-full">
-          <ClipboardList className="w-7 h-7 mr-4 stroke-green-primary" />
-          Confirm Waste
-        </Button>
+        <Link to="/confirm-waste">
+          <Button className="w-full bg-green-light text-black hover:bg-green-light/80 h-14 text-sm rounded-full">
+            <ClipboardList className="w-7 h-7 mr-4 stroke-green-primary" />
+            Confirm Waste
+          </Button>
+        </Link>
       </div>
 
       {/* Recycler Toggle */}
