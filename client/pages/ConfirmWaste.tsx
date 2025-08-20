@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ClipboardList, Search } from "lucide-react";
+import { ChevronLeft, ClipboardList, Search, Check } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function ConfirmWaste() {
   const [wasteId, setWasteId] = useState("");
   const [showWasteDetails, setShowWasteDetails] = useState(false);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   const handleSearch = () => {
     if (wasteId.trim()) {
@@ -15,9 +16,15 @@ export default function ConfirmWaste() {
   };
 
   const handleConfirmWaste = () => {
-    // Handle final waste confirmation
+    // Show success popup
+    setShowSuccessPopup(true);
     console.log("Confirming waste...");
-    // Navigate back to dashboard or show success message
+  };
+
+  const handleMakePayment = () => {
+    // Handle payment flow - will trigger next popup
+    console.log("Making payment...");
+    // This will trigger the next popup that user will provide
   };
 
   return (
@@ -115,11 +122,6 @@ export default function ConfirmWaste() {
                 <span className="text-sm text-black">Location -</span>
                 <span className="text-sm text-black font-medium">12.11lat 13.59long</span>
               </div>
-              
-              <div className="flex justify-between items-center">
-                <span className="text-sm text-black">Confirmer Address -</span>
-                <span className="text-sm text-black font-medium">0x365453647564564656</span>
-              </div>
             </div>
 
             {/* Confirm Waste Button */}
@@ -134,6 +136,41 @@ export default function ConfirmWaste() {
           </div>
         )}
       </div>
+
+      {/* Success Confirmation Popup */}
+      {showSuccessPopup && (
+        <div className="fixed inset-0 bg-gray-400/60 z-50 flex items-center justify-center p-6">
+          <div className="w-full max-w-sm bg-white rounded-3xl p-12 shadow-xl">
+            <div className="flex flex-col items-center space-y-11">
+              {/* Success Icon */}
+              <div className="relative">
+                <div className="w-18 h-18 rounded-full bg-gradient-to-br from-green-gradient-start to-green-gradient-end flex items-center justify-center">
+                  <Check className="w-10 h-10 text-white stroke-[4]" />
+                </div>
+              </div>
+
+              {/* Success Message */}
+              <div className="text-center space-y-4">
+                <h3 className="text-lg text-black font-normal leading-relaxed">
+                  Your Waste Confirmation is Successful
+                </h3>
+                <p className="text-sm text-black">
+                  Amount To Pay: <span className="text-green-primary font-medium">2,000 SCV</span>
+                </p>
+              </div>
+
+              {/* Make Payment Button */}
+              <Button
+                onClick={handleMakePayment}
+                variant="outline"
+                className="w-full h-14 text-base font-medium rounded-full border-2 border-green-primary text-green-primary hover:bg-green-primary/5"
+              >
+                Make Payment
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
