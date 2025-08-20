@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Eye, Coins, ClipboardList, Home, Wallet, MapPin, RotateCcw, Settings, X, CreditCard } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Index() {
   const [selectedRecycler, setSelectedRecycler] = useState(null);
