@@ -104,14 +104,21 @@ export default function ConfirmWaste() {
           <div className="pt-8">
             <Button
               onClick={handleSearch}
-              disabled={!wasteId.trim()}
+              disabled={!isValidId || isSearching}
               className={`w-full h-14 text-base font-medium rounded-full transition-all duration-200 ${
-                wasteId.trim()
+                isValidId && !isSearching
                   ? 'bg-gradient-to-r from-green-gradient-start to-green-gradient-end text-white hover:opacity-90'
                   : 'bg-gray-400 text-white cursor-not-allowed opacity-60'
               }`}
             >
-              Search
+              {isSearching ? (
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  Searching...
+                </div>
+              ) : (
+                'Search'
+              )}
             </Button>
           </div>
         </div>
