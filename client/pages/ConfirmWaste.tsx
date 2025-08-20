@@ -86,9 +86,14 @@ export default function ConfirmWaste() {
                 <input
                   type="text"
                   value={wasteId}
-                  onChange={(e) => setWasteId(e.target.value)}
+                  onChange={handleInputChange}
                   placeholder="Enter waste ID"
                   className="w-full h-14 px-3 pr-12 rounded-full border border-green-primary text-sm placeholder:text-gray-text focus:outline-none focus:ring-2 focus:ring-green-primary/20"
+                  onKeyPress={(e) => {
+                    if (e.key === 'Enter' && isValidId) {
+                      handleSearch();
+                    }
+                  }}
                 />
                 <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-border" />
               </div>
