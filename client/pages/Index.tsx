@@ -144,7 +144,7 @@ export default function Index() {
       </div>
 
       {/* Bottom Navigation */}
-      <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-sm bg-white border-t border-gray-100 shadow-lg">
+      <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-[430px] bg-white border-t border-gray-100 shadow-lg">
         <div className="flex justify-center items-center gap-12 py-3 px-8">
           <div className="flex flex-col items-center gap-2">
             <div className="p-2">
