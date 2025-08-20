@@ -5,11 +5,39 @@ import { Link } from "react-router-dom";
 
 export default function ConfirmWaste() {
   const [wasteId, setWasteId] = useState("");
+  const [isSearching, setIsSearching] = useState(false);
+  const [isValidId, setIsValidId] = useState(false);
 
-  const handleSearch = () => {
-    if (wasteId.trim()) {
-      // Navigate to next section of confirm waste process
-      console.log("Searching for waste ID:", wasteId);
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setWasteId(value);
+
+    // Basic validation for waste ID format (you can customize this)
+    const isValid = value.trim().length >= 3;
+    setIsValidId(isValid);
+  };
+
+  const handleSearch = async () => {
+    if (!isValidId || !wasteId.trim()) return;
+
+    setIsSearching(true);
+
+    try {
+      // Simulate API call for waste ID verification
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      // Navigate to next section or show results
+      console.log("Waste ID found:", wasteId);
+
+      // Here you would typically:
+      // 1. Validate the waste ID against your database
+      // 2. Show the next section of the confirm waste process
+      // 3. Or navigate to a results page
+
+    } catch (error) {
+      console.error("Error searching waste ID:", error);
+    } finally {
+      setIsSearching(false);
     }
   };
 
