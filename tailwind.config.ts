@@ -57,6 +57,13 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        'green-primary': '#009933',
+        'green-light': '#E9FEF0',
+        'green-gradient-start': '#009933',
+        'green-gradient-end': '#0AFC5B',
+        'gray-text': '#9A9A9A',
+        'gray-border': '#DADADA',
+        'gray-bg': '#F7F5F5',
       },
       borderRadius: {
         lg: "var(--radius)",
