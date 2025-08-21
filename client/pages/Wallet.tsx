@@ -73,6 +73,22 @@ export default function WalletPage() {
     }
   ];
 
+  const handleSwap = () => {
+    setShowSwapPopup(true);
+  };
+
+  const handleCloseSwapPopup = () => {
+    setShowSwapPopup(false);
+    setAmount("");
+    setPassword("");
+  };
+
+  const handleSwapSubmit = () => {
+    // Handle swap logic here
+    console.log("Swap submitted:", { amount, fromCurrency, toCurrency });
+    handleCloseSwapPopup();
+  };
+
   return (
     <div className="min-h-screen bg-white max-w-[430px] mx-auto relative">
       {/* Status Bar */}
