@@ -258,56 +258,56 @@ export default function WalletPage() {
               {/* Form */}
               <div className="space-y-4">
                 {/* Amount Input */}
-                <div className="space-y-2">
+                <div className="space-y-1">
                   <label className="text-sm font-medium text-black">Amount</label>
                   <input
                     type="text"
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
                     placeholder="Enter amount e.g 320 SCV"
-                    className="w-full px-4 py-4 border border-gray-200 rounded-full text-sm placeholder:text-gray-400 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-primary focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-full text-xs placeholder:text-gray-400 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-primary focus:border-transparent"
                   />
                 </div>
 
                 {/* Currency Selection Row */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-3">
                   {/* From Currency */}
-                  <div className="space-y-2">
+                  <div className="space-y-1">
                     <label className="text-sm font-medium text-black">From Currency</label>
                     <div className="relative">
                       <select
                         value={fromCurrency}
                         onChange={(e) => setFromCurrency(e.target.value)}
-                        className="w-full px-4 py-4 border border-gray-200 rounded-full text-sm text-gray-400 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-primary focus:border-transparent appearance-none"
+                        className="w-full px-4 py-3 border border-gray-200 rounded-full text-xs text-gray-400 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-primary focus:border-transparent appearance-none"
                       >
                         <option value="SCV">Currency (SCV)</option>
                         <option value="USDT">Currency (USDT)</option>
                         <option value="BTC">Currency (BTC)</option>
                       </select>
-                      <ChevronDown className="absolute right-4 top-1/2 transform -translate-y-1/2 w-3 h-2 text-black" />
+                      <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-3 h-2 text-black" />
                     </div>
                   </div>
 
                   {/* To Currency */}
-                  <div className="space-y-2">
+                  <div className="space-y-1">
                     <label className="text-sm font-medium text-black">To Currency</label>
                     <div className="relative">
                       <select
                         value={toCurrency}
                         onChange={(e) => setToCurrency(e.target.value)}
-                        className="w-full px-4 py-4 border border-gray-200 rounded-full text-sm text-gray-400 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-primary focus:border-transparent appearance-none"
+                        className="w-full px-4 py-3 border border-gray-200 rounded-full text-xs text-gray-400 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-primary focus:border-transparent appearance-none"
                       >
                         <option value="USDT">Currency (USDT)</option>
                         <option value="SCV">Currency (SCV)</option>
                         <option value="BTC">Currency (BTC)</option>
                       </select>
-                      <ChevronDown className="absolute right-4 top-1/2 transform -translate-y-1/2 w-3 h-2 text-black" />
+                      <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-3 h-2 text-black" />
                     </div>
                   </div>
                 </div>
 
                 {/* Password Input */}
-                <div className="space-y-2">
+                <div className="space-y-1">
                   <label className="text-sm font-medium text-black">Enter Password</label>
                   <div className="relative">
                     <input
@@ -315,12 +315,12 @@ export default function WalletPage() {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Enter your password"
-                      className="w-full px-4 py-4 pr-12 border border-gray-200 rounded-full text-sm placeholder:text-gray-400 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-primary focus:border-transparent"
+                      className="w-full px-4 py-3 pr-10 border border-gray-200 rounded-full text-xs placeholder:text-gray-400 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-primary focus:border-transparent"
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-4 top-1/2 transform -translate-y-1/2"
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2"
                     >
                       <EyeOff className="w-5 h-5 text-black" />
                     </button>
@@ -328,10 +328,10 @@ export default function WalletPage() {
                 </div>
 
                 {/* Swap Button */}
-                <div className="pt-8">
+                <div className="pt-4">
                   <Button
                     onClick={handleSwapSubmit}
-                    className="w-full bg-gradient-to-r from-green-gradient-start to-green-gradient-end text-white hover:from-green-gradient-start/90 hover:to-green-gradient-end/90 h-14 text-base font-medium rounded-full"
+                    className="w-full bg-gradient-to-r from-green-gradient-start to-green-gradient-end text-white hover:from-green-gradient-start/90 hover:to-green-gradient-end/90 h-12 text-base font-medium rounded-full"
                   >
                     Swap
                   </Button>
