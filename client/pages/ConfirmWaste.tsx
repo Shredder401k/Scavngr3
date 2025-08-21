@@ -24,6 +24,11 @@ export default function ConfirmWaste() {
   };
 
   const handleConfirmWaste = () => {
+    setShowSuccessPopup(true);
+  };
+
+  const handleMakePayment = () => {
+    setShowSuccessPopup(false);
     setShowPaymentPopup(true);
   };
 
