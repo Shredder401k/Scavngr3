@@ -1,5 +1,17 @@
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Eye, Coins, ClipboardList, Home, Wallet, MapPin, RotateCcw, Settings, X, CreditCard } from "lucide-react";
+import {
+  ChevronDown,
+  Eye,
+  Coins,
+  ClipboardList,
+  Home,
+  Wallet,
+  MapPin,
+  RotateCcw,
+  Settings,
+  X,
+  CreditCard,
+} from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -8,11 +20,46 @@ export default function Index() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const recyclers = [
-    { id: 1, name: "Mr Oyebade", location: "Kaduna", waste: "65kg Of Plastic", avatar: "https://api.builder.io/api/v1/image/assets/TEMP/5c49b802e9013dd1d9ae23bae4e43c32ed2e4792?width=82" },
-    { id: 2, name: "Mr Oyebade", location: "Kaduna", waste: "65kg Of Plastic", avatar: "https://api.builder.io/api/v1/image/assets/TEMP/4d35a2268442d358af95fa8cf5c63cdfcaf902b7?width=82" },
-    { id: 3, name: "Mr Oyebade", location: "Kaduna", waste: "65kg Of Plastic", avatar: "https://api.builder.io/api/v1/image/assets/TEMP/fbdd1ab97565b5f5af992691d18d8d08c1f6fe49?width=82" },
-    { id: 4, name: "Mr Oyebade", location: "Kaduna", waste: "65kg Of Plastic", avatar: "https://api.builder.io/api/v1/image/assets/TEMP/843aa10cf5a6c499d3a962ed7ff9c456d9bad54b?width=82" },
-    { id: 5, name: "Mr Oyebade", location: "Kaduna", waste: "65kg Of Plastic", avatar: "https://api.builder.io/api/v1/image/assets/TEMP/fbdd1ab97565b5f5af992691d18d8d08c1f6fe49?width=82" },
+    {
+      id: 1,
+      name: "Mr Oyebade",
+      location: "Kaduna",
+      waste: "65kg Of Plastic",
+      avatar:
+        "https://api.builder.io/api/v1/image/assets/TEMP/5c49b802e9013dd1d9ae23bae4e43c32ed2e4792?width=82",
+    },
+    {
+      id: 2,
+      name: "Mr Oyebade",
+      location: "Kaduna",
+      waste: "65kg Of Plastic",
+      avatar:
+        "https://api.builder.io/api/v1/image/assets/TEMP/4d35a2268442d358af95fa8cf5c63cdfcaf902b7?width=82",
+    },
+    {
+      id: 3,
+      name: "Mr Oyebade",
+      location: "Kaduna",
+      waste: "65kg Of Plastic",
+      avatar:
+        "https://api.builder.io/api/v1/image/assets/TEMP/fbdd1ab97565b5f5af992691d18d8d08c1f6fe49?width=82",
+    },
+    {
+      id: 4,
+      name: "Mr Oyebade",
+      location: "Kaduna",
+      waste: "65kg Of Plastic",
+      avatar:
+        "https://api.builder.io/api/v1/image/assets/TEMP/843aa10cf5a6c499d3a962ed7ff9c456d9bad54b?width=82",
+    },
+    {
+      id: 5,
+      name: "Mr Oyebade",
+      location: "Kaduna",
+      waste: "65kg Of Plastic",
+      avatar:
+        "https://api.builder.io/api/v1/image/assets/TEMP/fbdd1ab97565b5f5af992691d18d8d08c1f6fe49?width=82",
+    },
   ];
 
   return (
@@ -26,7 +73,13 @@ export default function Index() {
               <div
                 key={bar}
                 className={`w-1 bg-black rounded-sm ${
-                  bar === 1 ? 'h-3' : bar === 2 ? 'h-4' : bar === 3 ? 'h-5' : 'h-6'
+                  bar === 1
+                    ? "h-3"
+                    : bar === 2
+                      ? "h-4"
+                      : bar === 3
+                        ? "h-5"
+                        : "h-6"
                 }`}
               />
             ))}
@@ -69,7 +122,13 @@ export default function Index() {
                 fill="url(#gradient)"
               />
               <defs>
-                <linearGradient id="gradient" x1="0" y1="68.2709" x2="230" y2="68.2709">
+                <linearGradient
+                  id="gradient"
+                  x1="0"
+                  y1="68.2709"
+                  x2="230"
+                  y2="68.2709"
+                >
                   <stop offset="0.115425" stopColor="#009933" />
                   <stop offset="1" stopColor="#0AFC5B" />
                 </linearGradient>
@@ -136,7 +195,7 @@ export default function Index() {
                 </div>
               </div>
               <div className="text-xs text-black">{recycler.waste}</div>
-              <Button 
+              <Button
                 onClick={() => {
                   setSelectedRecycler(recycler);
                   setIsPopupOpen(true);
@@ -187,10 +246,7 @@ export default function Index() {
           <div className="w-full max-w-[430px] mx-auto bg-white rounded-t-3xl p-6 animate-slide-up shadow-2xl">
             {/* Close Button */}
             <div className="flex justify-end mb-4">
-              <button
-                onClick={() => setIsPopupOpen(false)}
-                className="p-1"
-              >
+              <button onClick={() => setIsPopupOpen(false)} className="p-1">
                 <X className="w-6 h-6 text-gray-border" />
               </button>
             </div>
@@ -206,14 +262,22 @@ export default function Index() {
                       className="w-10 h-10 rounded-lg"
                     />
                     <div>
-                      <div className="text-sm text-black">{selectedRecycler.name}</div>
-                      <div className="text-xs text-black">{selectedRecycler.location}</div>
+                      <div className="text-sm text-black">
+                        {selectedRecycler.name}
+                      </div>
+                      <div className="text-xs text-black">
+                        {selectedRecycler.location}
+                      </div>
                     </div>
                   </div>
-                  <div className="text-xs text-black">{selectedRecycler.waste}</div>
+                  <div className="text-xs text-black">
+                    {selectedRecycler.waste}
+                  </div>
                   <div className="text-right">
                     <div className="text-xs text-black">Waste ID:</div>
-                    <div className="text-xs font-bold text-green-primary">354436JK</div>
+                    <div className="text-xs font-bold text-green-primary">
+                      354436JK
+                    </div>
                   </div>
                 </div>
 
@@ -234,7 +298,9 @@ export default function Index() {
                       </div>
                     </div>
                     <div className="bg-white px-3 py-2 rounded-lg shadow-lg">
-                      <div className="text-xs text-black whitespace-nowrap">No. 23 Barnawa Complex</div>
+                      <div className="text-xs text-black whitespace-nowrap">
+                        No. 23 Barnawa Complex
+                      </div>
                     </div>
                   </div>
                 </div>

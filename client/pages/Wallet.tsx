@@ -1,6 +1,18 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, Eye, RefreshCw, Home, Wallet, MapPin, RotateCcw, Settings, X, ChevronDown, EyeOff } from "lucide-react";
+import {
+  ChevronLeft,
+  Eye,
+  RefreshCw,
+  Home,
+  Wallet,
+  MapPin,
+  RotateCcw,
+  Settings,
+  X,
+  ChevronDown,
+  EyeOff,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function WalletPage() {
@@ -19,7 +31,8 @@ export default function WalletPage() {
       description: "65kg Of Plastic",
       status: "Successful",
       statusColor: "text-green-primary",
-      avatar: "https://api.builder.io/api/v1/image/assets/TEMP/5c49b802e9013dd1d9ae23bae4e43c32ed2e4792?width=82"
+      avatar:
+        "https://api.builder.io/api/v1/image/assets/TEMP/5c49b802e9013dd1d9ae23bae4e43c32ed2e4792?width=82",
     },
     {
       id: 2,
@@ -29,7 +42,8 @@ export default function WalletPage() {
       description: "65kg Of Plastic",
       status: "Pending",
       statusColor: "text-orange-500",
-      avatar: "https://api.builder.io/api/v1/image/assets/TEMP/4d35a2268442d358af95fa8cf5c63cdfcaf902b7?width=82"
+      avatar:
+        "https://api.builder.io/api/v1/image/assets/TEMP/4d35a2268442d358af95fa8cf5c63cdfcaf902b7?width=82",
     },
     {
       id: 3,
@@ -39,7 +53,8 @@ export default function WalletPage() {
       description: "65kg Of Plastic",
       status: "Failed",
       statusColor: "text-red-500",
-      avatar: "https://api.builder.io/api/v1/image/assets/TEMP/fbdd1ab97565b5f5af992691d18d8d08c1f6fe49?width=82"
+      avatar:
+        "https://api.builder.io/api/v1/image/assets/TEMP/fbdd1ab97565b5f5af992691d18d8d08c1f6fe49?width=82",
     },
     {
       id: 4,
@@ -49,7 +64,8 @@ export default function WalletPage() {
       description: "65kg Of Plastic",
       status: "Pending",
       statusColor: "text-orange-500",
-      avatar: "https://api.builder.io/api/v1/image/assets/TEMP/843aa10cf5a6c499d3a962ed7ff9c456d9bad54b?width=82"
+      avatar:
+        "https://api.builder.io/api/v1/image/assets/TEMP/843aa10cf5a6c499d3a962ed7ff9c456d9bad54b?width=82",
     },
     {
       id: 5,
@@ -59,7 +75,8 @@ export default function WalletPage() {
       description: "65kg Of Plastic",
       status: "Failed",
       statusColor: "text-red-500",
-      avatar: "https://api.builder.io/api/v1/image/assets/TEMP/fbdd1ab97565b5f5af992691d18d8d08c1f6fe49?width=82"
+      avatar:
+        "https://api.builder.io/api/v1/image/assets/TEMP/fbdd1ab97565b5f5af992691d18d8d08c1f6fe49?width=82",
     },
     {
       id: 6,
@@ -69,8 +86,9 @@ export default function WalletPage() {
       description: "65kg Of Plastic",
       status: "Pending",
       statusColor: "text-orange-500",
-      avatar: "https://api.builder.io/api/v1/image/assets/TEMP/843aa10cf5a6c499d3a962ed7ff9c456d9bad54b?width=82"
-    }
+      avatar:
+        "https://api.builder.io/api/v1/image/assets/TEMP/843aa10cf5a6c499d3a962ed7ff9c456d9bad54b?width=82",
+    },
   ];
 
   const handleSwap = () => {
@@ -100,7 +118,13 @@ export default function WalletPage() {
               <div
                 key={bar}
                 className={`w-1 bg-black rounded-sm ${
-                  bar === 1 ? 'h-3' : bar === 2 ? 'h-4' : bar === 3 ? 'h-5' : 'h-6'
+                  bar === 1
+                    ? "h-3"
+                    : bar === 2
+                      ? "h-4"
+                      : bar === 3
+                        ? "h-5"
+                        : "h-6"
                 }`}
               />
             ))}
@@ -114,7 +138,10 @@ export default function WalletPage() {
 
       {/* Header */}
       <div className="flex justify-between items-center px-4 py-2">
-        <Link to="/dashboard" className="flex items-center justify-center w-11 h-11 rounded-full border border-gray-300">
+        <Link
+          to="/dashboard"
+          className="flex items-center justify-center w-11 h-11 rounded-full border border-gray-300"
+        >
           <ChevronLeft className="w-6 h-6 text-black" />
         </Link>
         <div className="flex items-center gap-6">
@@ -141,7 +168,13 @@ export default function WalletPage() {
                 fill="url(#gradient)"
               />
               <defs>
-                <linearGradient id="gradient" x1="0" y1="68.2709" x2="230" y2="68.2709">
+                <linearGradient
+                  id="gradient"
+                  x1="0"
+                  y1="68.2709"
+                  x2="230"
+                  y2="68.2709"
+                >
                   <stop offset="0.115425" stopColor="#009933" />
                   <stop offset="1" stopColor="#0AFC5B" />
                 </linearGradient>
@@ -176,7 +209,7 @@ export default function WalletPage() {
       {/* Wallet History */}
       <div className="px-4 pb-24">
         <h2 className="text-sm font-medium text-black mb-6">Wallet History</h2>
-        
+
         <div className="space-y-4">
           {transactions.map((transaction, index) => (
             <div key={transaction.id}>
@@ -193,10 +226,16 @@ export default function WalletPage() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-sm font-medium text-black">{transaction.amount}</div>
-                  <div className="text-xs text-black">{transaction.description}</div>
+                  <div className="text-sm font-medium text-black">
+                    {transaction.amount}
+                  </div>
+                  <div className="text-xs text-black">
+                    {transaction.description}
+                  </div>
                 </div>
-                <div className={`text-xs font-medium ${transaction.statusColor}`}>
+                <div
+                  className={`text-xs font-medium ${transaction.statusColor}`}
+                >
                   {transaction.status}
                 </div>
               </div>
@@ -217,7 +256,9 @@ export default function WalletPage() {
           </Link>
           <div className="flex flex-col items-center gap-2">
             <Wallet className="w-6 h-6 text-green-primary" />
-            <span className="text-xs text-green-primary font-medium">My Wallet</span>
+            <span className="text-xs text-green-primary font-medium">
+              My Wallet
+            </span>
           </div>
           <div className="flex flex-col items-center gap-2">
             <MapPin className="w-6 h-6 text-gray-text" />
@@ -253,13 +294,17 @@ export default function WalletPage() {
                 <RefreshCw className="w-8 h-8 text-green-primary" />
                 <h2 className="text-xl font-medium text-black">Swap</h2>
               </div>
-              <p className="text-sm text-black text-center mb-6">Convert your funds here</p>
+              <p className="text-sm text-black text-center mb-6">
+                Convert your funds here
+              </p>
 
               {/* Form */}
               <div className="space-y-4">
                 {/* Amount Input */}
                 <div className="space-y-1">
-                  <label className="text-sm font-medium text-black">Amount</label>
+                  <label className="text-sm font-medium text-black">
+                    Amount
+                  </label>
                   <input
                     type="text"
                     value={amount}
@@ -273,7 +318,9 @@ export default function WalletPage() {
                 <div className="grid grid-cols-2 gap-3">
                   {/* From Currency */}
                   <div className="space-y-1">
-                    <label className="text-sm font-medium text-black">From Currency</label>
+                    <label className="text-sm font-medium text-black">
+                      From Currency
+                    </label>
                     <div className="relative">
                       <select
                         value={fromCurrency}
@@ -290,7 +337,9 @@ export default function WalletPage() {
 
                   {/* To Currency */}
                   <div className="space-y-1">
-                    <label className="text-sm font-medium text-black">To Currency</label>
+                    <label className="text-sm font-medium text-black">
+                      To Currency
+                    </label>
                     <div className="relative">
                       <select
                         value={toCurrency}
@@ -308,7 +357,9 @@ export default function WalletPage() {
 
                 {/* Password Input */}
                 <div className="space-y-1">
-                  <label className="text-sm font-medium text-black">Enter Password</label>
+                  <label className="text-sm font-medium text-black">
+                    Enter Password
+                  </label>
                   <div className="relative">
                     <input
                       type={showPassword ? "text" : "password"}

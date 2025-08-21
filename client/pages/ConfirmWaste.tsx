@@ -1,5 +1,14 @@
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ClipboardList, Search, X, DollarSign, ChevronDown, EyeOff, Check } from "lucide-react";
+import {
+  ChevronLeft,
+  ClipboardList,
+  Search,
+  X,
+  DollarSign,
+  ChevronDown,
+  EyeOff,
+  Check,
+} from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -17,7 +26,6 @@ export default function ConfirmWaste() {
       setShowWasteDetails(true);
     }
   };
-
 
   const handleConfirmWaste = () => {
     setShowSuccessPopup(true);
@@ -51,7 +59,13 @@ export default function ConfirmWaste() {
               <div
                 key={bar}
                 className={`w-1 bg-black rounded-sm ${
-                  bar === 1 ? 'h-3' : bar === 2 ? 'h-4' : bar === 3 ? 'h-5' : 'h-6'
+                  bar === 1
+                    ? "h-3"
+                    : bar === 2
+                      ? "h-4"
+                      : bar === 3
+                        ? "h-5"
+                        : "h-6"
                 }`}
               />
             ))}
@@ -65,7 +79,10 @@ export default function ConfirmWaste() {
 
       {/* Header */}
       <div className="flex items-center gap-15 px-6 py-4">
-        <Link to="/dashboard" className="flex items-center justify-center w-11 h-11 rounded-full border border-gray-300">
+        <Link
+          to="/dashboard"
+          className="flex items-center justify-center w-11 h-11 rounded-full border border-gray-300"
+        >
           <ChevronLeft className="w-6 h-6 text-black" />
         </Link>
         <div className="flex items-center gap-2">
@@ -81,7 +98,9 @@ export default function ConfirmWaste() {
             {/* Waste ID Input Section */}
             <div className="space-y-5">
               <div className="space-y-2.5">
-                <label className="text-sm font-medium text-black">Waste ID</label>
+                <label className="text-sm font-medium text-black">
+                  Waste ID
+                </label>
                 <div className="relative">
                   <input
                     type="text"
@@ -102,8 +121,8 @@ export default function ConfirmWaste() {
                 disabled={!wasteId.trim()}
                 className={`w-full h-14 text-base font-medium rounded-full transition-all duration-200 ${
                   wasteId.trim()
-                    ? 'bg-gradient-to-r from-green-gradient-start to-green-gradient-end text-white hover:opacity-90'
-                    : 'bg-gray-400 text-white cursor-not-allowed opacity-60'
+                    ? "bg-gradient-to-r from-green-gradient-start to-green-gradient-end text-white hover:opacity-90"
+                    : "bg-gray-400 text-white cursor-not-allowed opacity-60"
                 }`}
               >
                 Search
@@ -114,8 +133,10 @@ export default function ConfirmWaste() {
           <div className="space-y-8">
             {/* Waste Details Section */}
             <div className="space-y-6">
-              <h2 className="text-base text-green-primary font-medium">Waste Details</h2>
-              
+              <h2 className="text-base text-green-primary font-medium">
+                Waste Details
+              </h2>
+
               <div className="space-y-4">
                 <div className="flex justify-between items-center text-xs">
                   <span className="text-black">Waste Type -</span>
@@ -154,8 +175,18 @@ export default function ConfirmWaste() {
               {/* Success Icon */}
               <div className="flex justify-center">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-green-gradient-start to-green-gradient-end flex items-center justify-center">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  <svg
+                    className="w-8 h-8 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={3}
+                      d="M5 13l4 4L19 7"
+                    />
                   </svg>
                 </div>
               </div>
@@ -167,7 +198,9 @@ export default function ConfirmWaste() {
                 </h2>
                 <p className="text-sm">
                   <span className="text-black">Amount To Pay: </span>
-                  <span className="text-green-primary font-medium">2,000 SCV</span>
+                  <span className="text-green-primary font-medium">
+                    2,000 SCV
+                  </span>
                 </p>
               </div>
 
@@ -208,18 +241,26 @@ export default function ConfirmWaste() {
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-green-gradient-start to-green-gradient-end flex items-center justify-center">
                     <DollarSign className="w-6 h-6 text-white" />
                   </div>
-                  <h2 className="text-xl text-black font-normal">Make Payment</h2>
+                  <h2 className="text-xl text-black font-normal">
+                    Make Payment
+                  </h2>
                 </div>
-                <p className="text-sm text-gray-600 ml-13">Send Your Funds Here</p>
+                <p className="text-sm text-gray-600 ml-13">
+                  Send Your Funds Here
+                </p>
               </div>
 
               {/* Token Amount */}
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <label className="text-sm font-medium text-black">Token Amount</label>
+                  <label className="text-sm font-medium text-black">
+                    Token Amount
+                  </label>
                   <div className="text-right">
                     <span className="text-xs text-black">Avail. Bal. </span>
-                    <span className="text-xs text-green-primary font-medium">3,456.06 SCV</span>
+                    <span className="text-xs text-green-primary font-medium">
+                      3,456.06 SCV
+                    </span>
                   </div>
                 </div>
                 <div className="relative">
@@ -235,7 +276,9 @@ export default function ConfirmWaste() {
 
               {/* Wallet Address */}
               <div className="space-y-3">
-                <label className="text-sm font-medium text-black">Wallet Address</label>
+                <label className="text-sm font-medium text-black">
+                  Wallet Address
+                </label>
                 <div className="relative">
                   <div className="flex items-center w-full h-14 px-4 rounded-full border border-gray-border">
                     <div className="flex items-center gap-3 flex-1">
@@ -249,7 +292,9 @@ export default function ConfirmWaste() {
 
               {/* Password */}
               <div className="space-y-3">
-                <label className="text-sm font-medium text-black">Enter Password</label>
+                <label className="text-sm font-medium text-black">
+                  Enter Password
+                </label>
                 <div className="relative">
                   <input
                     type="password"
@@ -269,8 +314,8 @@ export default function ConfirmWaste() {
                   disabled={!tokenAmount.trim() || !password.trim()}
                   className={`w-full h-14 text-base font-medium rounded-full transition-all duration-200 ${
                     tokenAmount.trim() && password.trim()
-                      ? 'bg-gradient-to-r from-green-gradient-start to-green-gradient-end text-white hover:opacity-90'
-                      : 'bg-gray-400 text-white cursor-not-allowed opacity-60'
+                      ? "bg-gradient-to-r from-green-gradient-start to-green-gradient-end text-white hover:opacity-90"
+                      : "bg-gray-400 text-white cursor-not-allowed opacity-60"
                   }`}
                 >
                   Send
@@ -290,8 +335,18 @@ export default function ConfirmWaste() {
               {/* Success Icon */}
               <div className="flex justify-center">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-green-gradient-start to-green-gradient-end flex items-center justify-center">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  <svg
+                    className="w-8 h-8 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={3}
+                      d="M5 13l4 4L19 7"
+                    />
                   </svg>
                 </div>
               </div>
