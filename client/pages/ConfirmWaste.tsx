@@ -87,7 +87,7 @@ export default function ConfirmWaste() {
             </div>
 
             {/* Search Button */}
-            <div className="pt-8">
+            <div className="pt-8 space-y-3">
               <Button
                 onClick={handleSearch}
                 disabled={!wasteId.trim()}
@@ -98,6 +98,15 @@ export default function ConfirmWaste() {
                 }`}
               >
                 Search
+              </Button>
+
+              {/* Debug button for testing - remove this later */}
+              <Button
+                onClick={handleDebugTest}
+                variant="outline"
+                className="w-full h-10 text-sm border-green-primary text-green-primary hover:bg-green-light"
+              >
+                🔧 Quick Test (Enter Waste Details)
               </Button>
             </div>
           </div>
