@@ -1,8 +1,15 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, Eye, RefreshCw, Home, Wallet, MapPin, RotateCcw, Settings } from "lucide-react";
+import { ChevronLeft, Eye, RefreshCw, Home, Wallet, MapPin, RotateCcw, Settings, X, ChevronDown, EyeOff } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function WalletPage() {
+  const [showSwapPopup, setShowSwapPopup] = useState(false);
+  const [amount, setAmount] = useState("");
+  const [fromCurrency, setFromCurrency] = useState("SCV");
+  const [toCurrency, setToCurrency] = useState("USDT");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const transactions = [
     {
       id: 1,
