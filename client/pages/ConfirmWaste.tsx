@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 export default function ConfirmWaste() {
   const [wasteId, setWasteId] = useState("");
   const [showWasteDetails, setShowWasteDetails] = useState(false);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [showPaymentPopup, setShowPaymentPopup] = useState(false);
   const [tokenAmount, setTokenAmount] = useState("");
   const [password, setPassword] = useState("");
