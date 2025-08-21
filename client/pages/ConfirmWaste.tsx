@@ -1,30 +1,28 @@
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ClipboardList, Search, Check } from "lucide-react";
+import { ChevronLeft, ClipboardList, Search, X, DollarSign, ChevronDown, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function ConfirmWaste() {
   const [wasteId, setWasteId] = useState("");
   const [showWasteDetails, setShowWasteDetails] = useState(false);
-  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [showPaymentPopup, setShowPaymentPopup] = useState(false);
+  const [tokenAmount, setTokenAmount] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSearch = () => {
     if (wasteId.trim()) {
       setShowWasteDetails(true);
-      console.log("Searching for waste ID:", wasteId);
     }
   };
 
   const handleConfirmWaste = () => {
-    // Show success popup
-    setShowSuccessPopup(true);
-    console.log("Confirming waste...");
+    setShowPaymentPopup(true);
   };
 
-  const handleMakePayment = () => {
-    // Handle payment flow - will trigger next popup
-    console.log("Making payment...");
-    // This will trigger the next popup that user will provide
+  const handlePayment = () => {
+    console.log("Processing payment...");
+    // Payment logic here
   };
 
   return (
@@ -38,13 +36,7 @@ export default function ConfirmWaste() {
               <div
                 key={bar}
                 className={`w-1 bg-black rounded-sm ${
-                  bar === 1
-                    ? "h-3"
-                    : bar === 2
-                      ? "h-4"
-                      : bar === 3
-                        ? "h-5"
-                        : "h-6"
+                  bar === 1 ? 'h-3' : bar === 2 ? 'h-4' : bar === 3 ? 'h-5' : 'h-6'
                 }`}
               />
             ))}
@@ -58,10 +50,7 @@ export default function ConfirmWaste() {
 
       {/* Header */}
       <div className="flex items-center gap-15 px-6 py-4">
-        <Link
-          to="/"
-          className="flex items-center justify-center w-11 h-11 rounded-full border border-gray-300"
-        >
+        <Link to="/" className="flex items-center justify-center w-11 h-11 rounded-full border border-gray-300">
           <ChevronLeft className="w-6 h-6 text-black" />
         </Link>
         <div className="flex items-center gap-2">
@@ -73,14 +62,11 @@ export default function ConfirmWaste() {
       {/* Content */}
       <div className="px-6 py-8">
         {!showWasteDetails ? (
-          // Initial Search Form
           <div className="space-y-8">
             {/* Waste ID Input Section */}
             <div className="space-y-5">
               <div className="space-y-2.5">
-                <label className="text-sm font-medium text-black">
-                  Waste ID
-                </label>
+                <label className="text-sm font-medium text-black">Waste ID</label>
                 <div className="relative">
                   <input
                     type="text"
@@ -101,8 +87,8 @@ export default function ConfirmWaste() {
                 disabled={!wasteId.trim()}
                 className={`w-full h-14 text-base font-medium rounded-full transition-all duration-200 ${
                   wasteId.trim()
-                    ? "bg-gradient-to-r from-green-gradient-start to-green-gradient-end text-white hover:opacity-90"
-                    : "bg-gray-400 text-white cursor-not-allowed opacity-60"
+                    ? 'bg-gradient-to-r from-green-gradient-start to-green-gradient-end text-white hover:opacity-90'
+                    : 'bg-gray-400 text-white cursor-not-allowed opacity-60'
                 }`}
               >
                 Search
@@ -110,32 +96,24 @@ export default function ConfirmWaste() {
             </div>
           </div>
         ) : (
-          // Waste Details Section
           <div className="space-y-8">
-            {/* Waste Details Header */}
-            <div className="text-center">
-              <h2 className="text-base font-medium text-green-primary">
-                Waste Details
-              </h2>
-            </div>
-
-            {/* Waste Details Card */}
-            <div className="bg-gray-100 rounded-lg p-6 space-y-4">
-              <div className="flex justify-between items-center">
-                <span className="text-sm text-black">Waste Type -</span>
-                <span className="text-sm text-black font-medium">Plastic</span>
-              </div>
-
-              <div className="flex justify-between items-center">
-                <span className="text-sm text-black">Waste Weight -</span>
-                <span className="text-sm text-black font-medium">10kg</span>
-              </div>
-
-              <div className="flex justify-between items-center">
-                <span className="text-sm text-black">Location -</span>
-                <span className="text-sm text-black font-medium">
-                  12.11lat 13.59long
-                </span>
+            {/* Waste Details Section */}
+            <div className="space-y-6">
+              <h2 className="text-base text-green-primary font-medium">Waste Details</h2>
+              
+              <div className="space-y-4">
+                <div className="flex justify-between items-center text-xs">
+                  <span className="text-black">Waste Type -</span>
+                  <span className="text-black">Plastic</span>
+                </div>
+                <div className="flex justify-between items-center text-xs">
+                  <span className="text-black">Waste Weight -</span>
+                  <span className="text-black">10kg</span>
+                </div>
+                <div className="flex justify-between items-center text-xs">
+                  <span className="text-black">Location -</span>
+                  <span className="text-black">12.11lat 13.59long</span>
+                </div>
               </div>
             </div>
 
@@ -143,7 +121,7 @@ export default function ConfirmWaste() {
             <div className="pt-8">
               <Button
                 onClick={handleConfirmWaste}
-                className="w-full h-14 text-base font-medium rounded-full bg-gradient-to-r from-green-gradient-end to-green-gradient-start text-white hover:opacity-90"
+                className="w-full h-14 text-base font-medium rounded-full bg-gradient-to-r from-green-gradient-start to-green-gradient-end text-white hover:opacity-90"
               >
                 Confirm Waste
               </Button>
@@ -152,39 +130,96 @@ export default function ConfirmWaste() {
         )}
       </div>
 
-      {/* Success Confirmation Popup */}
-      {showSuccessPopup && (
-        <div className="fixed inset-0 bg-gray-400/60 z-50 flex items-center justify-center p-6">
-          <div className="w-full max-w-sm bg-white rounded-3xl p-12 shadow-xl">
-            <div className="flex flex-col items-center space-y-11">
-              {/* Success Icon */}
-              <div className="relative">
-                <div className="w-18 h-18 rounded-full bg-gradient-to-br from-green-gradient-start to-green-gradient-end flex items-center justify-center">
-                  <Check className="w-10 h-10 text-white stroke-[4]" />
+      {/* Payment Popup */}
+      {showPaymentPopup && (
+        <div className="fixed inset-0 bg-gray-400/60 z-50 flex items-end">
+          <div className="w-full max-w-[430px] mx-auto bg-white rounded-t-3xl p-6 animate-slide-up shadow-2xl">
+            {/* Close Button */}
+            <div className="flex justify-end mb-4">
+              <button
+                onClick={() => setShowPaymentPopup(false)}
+                className="p-1"
+              >
+                <X className="w-6 h-6 text-gray-border" />
+              </button>
+            </div>
+
+            {/* Payment Content */}
+            <div className="space-y-6">
+              {/* Header */}
+              <div className="space-y-2">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-green-gradient-start to-green-gradient-end flex items-center justify-center">
+                    <DollarSign className="w-6 h-6 text-white" />
+                  </div>
+                  <h2 className="text-xl text-black font-normal">Make Payment</h2>
+                </div>
+                <p className="text-sm text-gray-600 ml-13">Send Your Funds Here</p>
+              </div>
+
+              {/* Token Amount */}
+              <div className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <label className="text-sm font-medium text-black">Token Amount</label>
+                  <div className="text-right">
+                    <span className="text-xs text-black">Avail. Bal. </span>
+                    <span className="text-xs text-green-primary font-medium">3,456.06 SCV</span>
+                  </div>
+                </div>
+                <div className="relative">
+                  <input
+                    type="text"
+                    value={tokenAmount}
+                    onChange={(e) => setTokenAmount(e.target.value)}
+                    placeholder="Enter token amount e.g 320 SCV"
+                    className="w-full h-14 px-4 rounded-full border border-gray-border text-sm placeholder:text-gray-text focus:outline-none focus:ring-2 focus:ring-green-primary/20"
+                  />
                 </div>
               </div>
 
-              {/* Success Message */}
-              <div className="text-center space-y-4">
-                <h3 className="text-lg text-black font-normal leading-relaxed">
-                  Your Waste Confirmation is Successful
-                </h3>
-                <p className="text-sm text-black">
-                  Amount To Pay:{" "}
-                  <span className="text-green-primary font-medium">
-                    2,000 SCV
-                  </span>
-                </p>
+              {/* Wallet Address */}
+              <div className="space-y-3">
+                <label className="text-sm font-medium text-black">Wallet Address</label>
+                <div className="relative">
+                  <div className="flex items-center w-full h-14 px-4 rounded-full border border-gray-border">
+                    <div className="flex items-center gap-3 flex-1">
+                      <div className="w-6 h-6 bg-orange-500 rounded-full" />
+                      <span className="text-xs text-black">0x5475.....</span>
+                    </div>
+                    <ChevronDown className="w-4 h-4 text-black" />
+                  </div>
+                </div>
               </div>
 
-              {/* Make Payment Button */}
-              <Button
-                onClick={handleMakePayment}
-                variant="outline"
-                className="w-full h-14 text-base font-medium rounded-full border-2 border-green-primary text-green-primary hover:bg-green-primary/5"
-              >
-                Make Payment
-              </Button>
+              {/* Password */}
+              <div className="space-y-3">
+                <label className="text-sm font-medium text-black">Enter Password</label>
+                <div className="relative">
+                  <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Enter your password"
+                    className="w-full h-14 px-4 pr-12 rounded-full border border-gray-border text-sm placeholder:text-gray-text focus:outline-none focus:ring-2 focus:ring-green-primary/20"
+                  />
+                  <EyeOff className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-600" />
+                </div>
+              </div>
+
+              {/* Send Button */}
+              <div className="pt-4">
+                <Button
+                  onClick={handlePayment}
+                  disabled={!tokenAmount.trim() || !password.trim()}
+                  className={`w-full h-14 text-base font-medium rounded-full transition-all duration-200 ${
+                    tokenAmount.trim() && password.trim()
+                      ? 'bg-gradient-to-r from-green-gradient-start to-green-gradient-end text-white hover:opacity-90'
+                      : 'bg-gray-400 text-white cursor-not-allowed opacity-60'
+                  }`}
+                >
+                  Send
+                </Button>
+              </div>
             </div>
           </div>
         </div>
