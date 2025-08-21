@@ -237,108 +237,105 @@ export default function WalletPage() {
       {/* Swap Popup */}
       {showSwapPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-end justify-center">
-          <div className="bg-white rounded-t-lg w-full max-w-[430px] h-[559px] transform transition-transform duration-300 ease-out animate-slide-up">
-            {/* Popup Header */}
-            <div className="flex justify-between items-center p-6 border-b border-gray-100">
-              <div className="flex items-center gap-4">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-b from-green-gradient-start to-green-gradient-end">
-                  <RefreshCw className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h2 className="text-xl font-medium text-black">Swap</h2>
-                  <p className="text-sm text-gray-text">Convert your funds here</p>
-                </div>
-              </div>
-              <button
-                onClick={handleCloseSwapPopup}
-                className="flex items-center justify-center w-6 h-6"
-              >
-                <X className="w-6 h-6 text-gray-300" />
-              </button>
-            </div>
+          <div className="bg-white rounded-t-lg w-full max-w-[430px] h-[559px] transform transition-transform duration-300 ease-out animate-slide-up relative">
+            {/* Close Button */}
+            <button
+              onClick={handleCloseSwapPopup}
+              className="absolute top-6 right-6 z-10"
+            >
+              <X className="w-6 h-6 text-gray-border" />
+            </button>
 
             {/* Popup Content */}
-            <div className="p-6 space-y-6">
-              {/* Amount Input */}
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-black">Amount</label>
-                <div className="relative">
+            <div className="p-10 pt-16">
+              {/* Header */}
+              <div className="flex items-center justify-center gap-3 mb-2">
+                <RefreshCw className="w-10 h-10 text-green-primary" />
+                <h2 className="text-xl font-medium text-black">Swap</h2>
+              </div>
+              <p className="text-sm text-black text-center mb-8">Convert your funds here</p>
+
+              {/* Form */}
+              <div className="space-y-6">
+                {/* Amount Input */}
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-black">Amount</label>
                   <input
                     type="text"
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
                     placeholder="Enter amount e.g 320 SCV"
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-primary focus:border-transparent"
+                    className="w-full px-4 py-4 border border-gray-200 rounded-full text-sm placeholder:text-gray-400 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-primary focus:border-transparent"
                   />
                 </div>
-              </div>
 
-              {/* Currency Selection Row */}
-              <div className="grid grid-cols-2 gap-4">
-                {/* From Currency */}
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-black">From Currency</label>
-                  <div className="relative">
-                    <select
-                      value={fromCurrency}
-                      onChange={(e) => setFromCurrency(e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-primary focus:border-transparent appearance-none"
-                    >
-                      <option value="SCV">Currency (SCV)</option>
-                      <option value="USDT">Currency (USDT)</option>
-                      <option value="BTC">Currency (BTC)</option>
-                    </select>
-                    <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-black" />
+                {/* Currency Selection Row */}
+                <div className="grid grid-cols-2 gap-4">
+                  {/* From Currency */}
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-black">From Currency</label>
+                    <div className="relative">
+                      <select
+                        value={fromCurrency}
+                        onChange={(e) => setFromCurrency(e.target.value)}
+                        className="w-full px-4 py-4 border border-gray-200 rounded-full text-sm text-gray-400 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-primary focus:border-transparent appearance-none"
+                      >
+                        <option value="SCV">Currency (SCV)</option>
+                        <option value="USDT">Currency (USDT)</option>
+                        <option value="BTC">Currency (BTC)</option>
+                      </select>
+                      <ChevronDown className="absolute right-4 top-1/2 transform -translate-y-1/2 w-3 h-2 text-black" />
+                    </div>
+                  </div>
+
+                  {/* To Currency */}
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-black">To Currency</label>
+                    <div className="relative">
+                      <select
+                        value={toCurrency}
+                        onChange={(e) => setToCurrency(e.target.value)}
+                        className="w-full px-4 py-4 border border-gray-200 rounded-full text-sm text-gray-400 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-primary focus:border-transparent appearance-none"
+                      >
+                        <option value="USDT">Currency (USDT)</option>
+                        <option value="SCV">Currency (SCV)</option>
+                        <option value="BTC">Currency (BTC)</option>
+                      </select>
+                      <ChevronDown className="absolute right-4 top-1/2 transform -translate-y-1/2 w-3 h-2 text-black" />
+                    </div>
                   </div>
                 </div>
 
-                {/* To Currency */}
+                {/* Password Input */}
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-black">To Currency</label>
+                  <label className="text-sm font-medium text-black">Enter Password</label>
                   <div className="relative">
-                    <select
-                      value={toCurrency}
-                      onChange={(e) => setToCurrency(e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-primary focus:border-transparent appearance-none"
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="Enter your password"
+                      className="w-full px-4 py-4 pr-12 border border-gray-200 rounded-full text-sm placeholder:text-gray-400 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-primary focus:border-transparent"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-4 top-1/2 transform -translate-y-1/2"
                     >
-                      <option value="USDT">Currency (USDT)</option>
-                      <option value="SCV">Currency (SCV)</option>
-                      <option value="BTC">Currency (BTC)</option>
-                    </select>
-                    <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-black" />
+                      <EyeOff className="w-5 h-5 text-black" />
+                    </button>
                   </div>
                 </div>
-              </div>
 
-              {/* Password Input */}
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-black">Enter Password</label>
-                <div className="relative">
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Enter your password"
-                    className="w-full px-4 py-3 pr-12 border border-gray-200 rounded-lg text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-primary focus:border-transparent"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2"
+                {/* Swap Button */}
+                <div className="pt-8">
+                  <Button
+                    onClick={handleSwapSubmit}
+                    className="w-full bg-gradient-to-r from-green-gradient-start to-green-gradient-end text-white hover:from-green-gradient-start/90 hover:to-green-gradient-end/90 h-14 text-base font-medium rounded-full"
                   >
-                    <EyeOff className="w-5 h-5 text-black" />
-                  </button>
+                    Swap
+                  </Button>
                 </div>
-              </div>
-
-              {/* Swap Button */}
-              <div className="pt-6">
-                <Button
-                  onClick={handleSwapSubmit}
-                  className="w-full bg-gradient-to-r from-green-gradient-start to-green-gradient-end text-white hover:from-green-gradient-start/90 hover:to-green-gradient-end/90 h-14 text-base font-medium rounded-lg"
-                >
-                  Swap
-                </Button>
               </div>
             </div>
           </div>
