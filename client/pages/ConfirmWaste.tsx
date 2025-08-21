@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ClipboardList, Search, X, DollarSign, ChevronDown, EyeOff } from "lucide-react";
+import { ChevronLeft, ClipboardList, Search, X, DollarSign, ChevronDown, EyeOff, Check } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
