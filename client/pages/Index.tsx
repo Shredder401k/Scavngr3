@@ -162,10 +162,10 @@ export default function Index() {
             </div>
             <span className="text-xs text-green-primary font-medium">Home</span>
           </div>
-          <div className="flex flex-col items-center gap-2">
+          <Link to="/wallet" className="flex flex-col items-center gap-2">
             <Wallet className="w-6 h-6 text-gray-text" />
             <span className="text-xs text-gray-text">My Wallet</span>
-          </div>
+          </Link>
           <div className="flex flex-col items-center gap-2">
             <MapPin className="w-6 h-6 text-gray-text" />
             <span className="text-xs text-gray-text">Map</span>
