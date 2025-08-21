@@ -211,7 +211,7 @@ export default function WalletPage() {
       {/* Bottom Navigation */}
       <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-[430px] bg-white border-t border-gray-100 shadow-lg">
         <div className="flex justify-center items-center gap-12 py-3 px-8">
-          <Link to="/" className="flex flex-col items-center gap-2">
+          <Link to="/dashboard" className="flex flex-col items-center gap-2">
             <Home className="w-6 h-6 text-gray-text" />
             <span className="text-xs text-gray-text">Home</span>
           </Link>
