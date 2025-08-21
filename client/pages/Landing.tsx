@@ -29,15 +29,9 @@ export default function LandingPage() {
       </div>
 
       {/* Green Hero Section */}
-      <div className="relative">
-        {/* Green Background Top */}
-        <div className="h-[363px] bg-gradient-to-r from-green-gradient-start to-green-gradient-end"></div>
-        
-        {/* White Background Bottom */}
-        <div className="h-[377px] bg-white"></div>
-        
+      <div className="relative bg-gradient-to-r from-green-gradient-start to-green-gradient-end pb-20">
         {/* Overlay Content */}
-        <div className="absolute inset-0">
+        <div className="relative z-10">
           {/* Header with Logo and Login */}
           <div className="flex justify-between items-center px-4 py-4">
             <div className="flex items-center gap-2">
