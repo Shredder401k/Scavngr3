@@ -65,43 +65,43 @@ export default function LandingPage() {
           </div>
 
           {/* Central Content */}
-          <div className="px-8 pt-8">
+          <div className="px-8 pt-4 pb-8">
             {/* 3D Image with Role Labels */}
-            <div className="relative flex justify-center items-center mb-8">
+            <div className="relative flex justify-center items-center mb-6 h-48">
               <img
                 src="https://api.builder.io/api/v1/image/assets/TEMP/aecfed807d6a02d5c124d4ad3198492935f24ff2?width=309"
                 alt="3D Recycling Icon"
-                className="w-38 h-43"
+                className="w-32 h-36 z-10"
               />
               {/* Role Labels */}
               <div className="absolute inset-0">
-                <div className="absolute top-6 left-0 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
-                  <span className="text-white text-lg">Manufacturer</span>
+                <div className="absolute top-2 left-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 border border-white/30">
+                  <span className="text-white text-sm">Manufacturer</span>
                 </div>
-                <div className="absolute top-20 right-0 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
-                  <span className="text-white text-lg">Collector</span>
+                <div className="absolute top-12 right-0 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 border border-white/30">
+                  <span className="text-white text-sm">Collector</span>
                 </div>
-                <div className="absolute bottom-8 left-16 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
-                  <span className="text-white text-lg">Recycler</span>
+                <div className="absolute bottom-4 left-8 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 border border-white/30">
+                  <span className="text-white text-sm">Recycler</span>
                 </div>
               </div>
             </div>
 
             {/* Title and Description */}
-            <div className="text-center mb-8">
-              <h1 className="text-3xl font-normal mb-4">
+            <div className="text-center mb-6">
+              <h1 className="text-2xl font-normal mb-3">
                 <span className="text-black">Earn As You </span>
                 <span className="text-white font-bold">Recycle</span>
               </h1>
-              <p className="text-white text-lg leading-relaxed">
-                Scavenger is a blockchain app rewards users with tokens based on waste weight, 
+              <p className="text-white text-sm leading-relaxed px-2">
+                Scavenger is a blockchain app rewards users with tokens based on waste weight,
                 ensuring transparency via supply chain tracking
               </p>
             </div>
 
             {/* Get Started Button */}
             <div className="flex justify-center">
-              <Button 
+              <Button
                 asChild
                 className="bg-white text-black hover:bg-gray-100 rounded-full px-8 py-3 text-base font-medium"
               >
