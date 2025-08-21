@@ -294,6 +294,32 @@ export default function ConfirmWaste() {
           </div>
         </div>
       )}
+
+      {/* Final Payment Success Popup */}
+      {showPaymentSuccess && (
+        <div className="fixed inset-0 bg-gray-400/60 z-50 flex items-center justify-center">
+          <div className="w-full max-w-[345px] mx-auto bg-white rounded-3xl p-12 animate-slide-up shadow-2xl">
+            {/* Final Success Content */}
+            <div className="space-y-11 text-center">
+              {/* Success Icon */}
+              <div className="flex justify-center">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-green-gradient-start to-green-gradient-end flex items-center justify-center">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Final Success Message */}
+              <div>
+                <h2 className="text-lg text-black font-normal leading-relaxed">
+                  Your 2,000 SCV Payment is Successful
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
