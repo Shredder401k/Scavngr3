@@ -237,7 +237,7 @@ export default function WalletPage() {
       {/* Swap Popup */}
       {showSwapPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-end justify-center">
-          <div className="bg-white rounded-t-lg w-full max-w-[430px] h-[559px] transform transition-transform duration-300 ease-out animate-slide-up relative">
+          <div className="bg-white rounded-t-lg w-full max-w-[430px] min-h-[500px] max-h-[80vh] transform transition-transform duration-300 ease-out animate-slide-up relative">
             {/* Close Button */}
             <button
               onClick={handleCloseSwapPopup}
