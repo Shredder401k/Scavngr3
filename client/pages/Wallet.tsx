@@ -247,16 +247,16 @@ export default function WalletPage() {
             </button>
 
             {/* Popup Content */}
-            <div className="p-10 pt-16">
+            <div className="p-6 pt-12 pb-8">
               {/* Header */}
               <div className="flex items-center justify-center gap-3 mb-2">
-                <RefreshCw className="w-10 h-10 text-green-primary" />
+                <RefreshCw className="w-8 h-8 text-green-primary" />
                 <h2 className="text-xl font-medium text-black">Swap</h2>
               </div>
-              <p className="text-sm text-black text-center mb-8">Convert your funds here</p>
+              <p className="text-sm text-black text-center mb-6">Convert your funds here</p>
 
               {/* Form */}
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {/* Amount Input */}
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-black">Amount</label>
