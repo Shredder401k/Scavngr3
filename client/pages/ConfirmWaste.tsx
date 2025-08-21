@@ -16,6 +16,12 @@ export default function ConfirmWaste() {
     }
   };
 
+  // Debug function for testing - you can remove this later
+  const handleDebugTest = () => {
+    setWasteId("TEST123");
+    setShowWasteDetails(true);
+  };
+
   const handleConfirmWaste = () => {
     setShowPaymentPopup(true);
   };
