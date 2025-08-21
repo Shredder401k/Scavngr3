@@ -114,7 +114,7 @@ export default function WalletPage() {
 
       {/* Header */}
       <div className="flex justify-between items-center px-4 py-2">
-        <Link to="/" className="flex items-center justify-center w-11 h-11 rounded-full border border-gray-300">
+        <Link to="/dashboard" className="flex items-center justify-center w-11 h-11 rounded-full border border-gray-300">
           <ChevronLeft className="w-6 h-6 text-black" />
         </Link>
         <div className="flex items-center gap-6">
