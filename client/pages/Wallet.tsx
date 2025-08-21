@@ -164,7 +164,10 @@ export default function WalletPage() {
 
       {/* Swap Button */}
       <div className="mx-3 mb-6">
-        <Button className="w-full bg-green-light text-black hover:bg-green-light/80 h-14 text-sm rounded-full">
+        <Button
+          onClick={handleSwap}
+          className="w-full bg-green-light text-black hover:bg-green-light/80 h-14 text-sm rounded-full"
+        >
           <RefreshCw className="w-7 h-7 mr-4 stroke-green-primary" />
           Swap
         </Button>
