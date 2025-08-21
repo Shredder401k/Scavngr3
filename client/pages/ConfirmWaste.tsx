@@ -36,6 +36,13 @@ export default function ConfirmWaste() {
   const handlePayment = () => {
     console.log("Processing payment...");
     // Payment logic here
+    setShowPaymentPopup(false);
+    setShowPaymentSuccess(true);
+
+    // Auto-close after 3 seconds (optional)
+    setTimeout(() => {
+      setShowPaymentSuccess(false);
+    }, 3000);
   };
 
   return (
