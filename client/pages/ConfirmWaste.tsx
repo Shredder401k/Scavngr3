@@ -8,6 +8,7 @@ export default function ConfirmWaste() {
   const [showWasteDetails, setShowWasteDetails] = useState(false);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [showPaymentPopup, setShowPaymentPopup] = useState(false);
+  const [showPaymentSuccess, setShowPaymentSuccess] = useState(false);
   const [tokenAmount, setTokenAmount] = useState("");
   const [password, setPassword] = useState("");
 
