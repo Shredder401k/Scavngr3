@@ -151,6 +151,47 @@ export default function ConfirmWaste() {
         )}
       </div>
 
+      {/* Success Confirmation Popup */}
+      {showSuccessPopup && (
+        <div className="fixed inset-0 bg-gray-400/60 z-50 flex items-center justify-center">
+          <div className="w-full max-w-[345px] mx-auto bg-white rounded-3xl p-12 animate-slide-up shadow-2xl">
+            {/* Success Content */}
+            <div className="space-y-11 text-center">
+              {/* Success Icon */}
+              <div className="flex justify-center">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-green-gradient-start to-green-gradient-end flex items-center justify-center">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Success Message */}
+              <div className="space-y-4">
+                <h2 className="text-lg text-black font-normal leading-relaxed">
+                  Your Waste Confirmation is Successful
+                </h2>
+                <p className="text-sm">
+                  <span className="text-black">Amount To Pay: </span>
+                  <span className="text-green-primary font-medium">2,000 SCV</span>
+                </p>
+              </div>
+
+              {/* Make Payment Button */}
+              <div className="pt-8">
+                <Button
+                  onClick={handleMakePayment}
+                  variant="outline"
+                  className="w-full h-14 text-base font-medium rounded-full border-green-primary text-green-primary hover:bg-green-light"
+                >
+                  Make Payment
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Payment Popup */}
       {showPaymentPopup && (
         <div className="fixed inset-0 bg-gray-400/60 z-50 flex items-end">
