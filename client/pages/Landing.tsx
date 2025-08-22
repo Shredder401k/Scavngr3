@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 export default function LandingPage() {
-  const [activeTab, setActiveTab] = useState("Recycler");
+  const [activeTab, setActiveTab] = useState("Manufacturer");
 
   // Content for each tab
   const tabContent = {
