@@ -8,32 +8,35 @@ export default function LandingPage() {
   // Content for each tab
   const tabContent = {
     Recycler: {
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/d287bcf1a73e07c9706bbad7c7a76e651e2db5be?width=762",
+      image:
+        "https://api.builder.io/api/v1/image/assets/TEMP/d287bcf1a73e07c9706bbad7c7a76e651e2db5be?width=762",
       title: "As a Recycler :",
       features: [
         "* Log In App → Confirm Waste → Make Payment",
         "* View Supply Chain",
-        "* And So Much More"
-      ]
+        "* And So Much More",
+      ],
     },
     Collector: {
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/d287bcf1a73e07c9706bbad7c7a76e651e2db5be?width=762",
+      image:
+        "https://api.builder.io/api/v1/image/assets/TEMP/d287bcf1a73e07c9706bbad7c7a76e651e2db5be?width=762",
       title: "As a Collector :",
       features: [
         "* Log In App → Confirm Waste → Make Payment",
         "* View Supply Chain",
-        "* And So Much More"
-      ]
+        "* And So Much More",
+      ],
     },
     Manufacturer: {
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/3478ea30d2eed320097882e9df69bc2cc343f90c?width=762",
+      image:
+        "https://api.builder.io/api/v1/image/assets/TEMP/3478ea30d2eed320097882e9df69bc2cc343f90c?width=762",
       title: "As a Manufacturer :",
       features: [
         "* Log In App → Confirm Waste → Make Payment",
         "* View Supply Chain",
-        "* And So Much More"
-      ]
-    }
+        "* And So Much More",
+      ],
+    },
   };
 
   return (
@@ -230,11 +233,13 @@ export default function LandingPage() {
             {tabContent[activeTab as keyof typeof tabContent].title}
           </h3>
           <div className="space-y-2">
-            {tabContent[activeTab as keyof typeof tabContent].features.map((feature, index) => (
-              <p key={index} className="text-sm text-black capitalize">
-                {feature}
-              </p>
-            ))}
+            {tabContent[activeTab as keyof typeof tabContent].features.map(
+              (feature, index) => (
+                <p key={index} className="text-sm text-black capitalize">
+                  {feature}
+                </p>
+              ),
+            )}
           </div>
         </div>
 
