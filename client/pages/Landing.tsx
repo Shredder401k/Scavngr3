@@ -218,8 +218,8 @@ export default function LandingPage() {
         {/* Content Image */}
         <div className="mb-6">
           <img
-            src="https://api.builder.io/api/v1/image/assets/TEMP/d287bcf1a73e07c9706bbad7c7a76e651e2db5be?width=762"
-            alt="Waste Sorting Plant"
+            src={tabContent[activeTab as keyof typeof tabContent].image}
+            alt={`${activeTab} facility`}
             className="w-full h-64 object-cover rounded-2xl"
           />
         </div>
@@ -227,14 +227,14 @@ export default function LandingPage() {
         {/* Content Description */}
         <div className="mb-8">
           <h3 className="text-base font-bold mb-3 bg-gradient-to-r from-green-gradient-start to-green-gradient-end bg-clip-text text-transparent">
-            As a {activeTab} :
+            {tabContent[activeTab as keyof typeof tabContent].title}
           </h3>
           <div className="space-y-2">
-            <p className="text-sm text-black capitalize">
-              * Log In App → Confirm Waste → Make Payment
-            </p>
-            <p className="text-sm text-black capitalize">* View Supply Chain</p>
-            <p className="text-sm text-black capitalize">* And So Much More</p>
+            {tabContent[activeTab as keyof typeof tabContent].features.map((feature, index) => (
+              <p key={index} className="text-sm text-black capitalize">
+                {feature}
+              </p>
+            ))}
           </div>
         </div>
 
