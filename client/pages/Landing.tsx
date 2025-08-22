@@ -162,21 +162,21 @@ export default function LandingPage() {
       </div>
 
       {/* Our Offerings Section */}
-      <div className="px-6 py-8">
-        <h2 className="text-2xl font-bold text-green-primary mb-6">
+      <div className="bg-white px-6 py-10">
+        <h2 className="text-2xl font-bold text-center mb-8 bg-gradient-to-r from-green-gradient-start to-green-gradient-end bg-clip-text text-transparent">
           Our Offerings
         </h2>
 
         {/* Tab Navigation */}
-        <div className="flex gap-1 mb-6">
+        <div className="flex justify-center gap-4 mb-6">
           {["Recycler", "Collector", "Manufacturer"].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-4 py-2 rounded-full text-sm ${
+              className={`px-4 py-2 rounded-full text-xs ${
                 activeTab === tab
                   ? "bg-black text-white"
-                  : "bg-transparent text-gray-500 border border-gray-200"
+                  : "bg-transparent text-gray-400 border border-gray-border"
               }`}
             >
               {tab}
@@ -187,32 +187,31 @@ export default function LandingPage() {
         {/* Content Image */}
         <div className="mb-6">
           <img
-            src="https://api.builder.io/api/v1/image/assets/TEMP/07feba292fbe16e3920a6ef7cc7a17c1ca0a1395?width=762"
+            src="https://api.builder.io/api/v1/image/assets/TEMP/d287bcf1a73e07c9706bbad7c7a76e651e2db5be?width=762"
             alt="Waste Sorting Plant"
-            className="w-full h-48 object-cover rounded-lg"
+            className="w-full h-64 object-cover rounded-2xl"
           />
         </div>
 
         {/* Content Description */}
-        <div className="mb-6">
-          <h3 className="text-lg font-bold text-black mb-3">
+        <div className="mb-8">
+          <h3 className="text-base font-bold mb-3 bg-gradient-to-r from-green-gradient-start to-green-gradient-end bg-clip-text text-transparent">
             As a {activeTab} :
           </h3>
           <div className="space-y-2">
-            <p className="text-sm text-black">
-              {" "}
-              * Log in app → Confirm Waste → Make Payment
+            <p className="text-sm text-black capitalize">
+              * Log In App → Confirm Waste → Make Payment
             </p>
-            <p className="text-sm text-black"> * View Supply Chain</p>
-            <p className="text-sm text-black"> * And So Much More</p>
+            <p className="text-sm text-black capitalize">* View Supply Chain</p>
+            <p className="text-sm text-black capitalize">* And So Much More</p>
           </div>
         </div>
 
         {/* Get Started Button */}
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center">
           <Button
             asChild
-            className="bg-gradient-to-r from-green-gradient-start to-green-gradient-end text-white hover:from-green-gradient-start/90 hover:to-green-gradient-end/90 rounded-full px-8 py-3 text-sm"
+            className="bg-gradient-to-r from-green-gradient-start to-green-gradient-end text-white hover:from-green-gradient-start/90 hover:to-green-gradient-end/90 rounded-full px-6 py-3 text-sm font-medium"
           >
             <Link to="/dashboard">Get Started</Link>
           </Button>
